@@ -1,3 +1,7 @@
+using NLPModels
+
+include("steihaug.jl")
+
 function newton_stg(nlp::AbstractNLPModel; η1 = 0.25, η2 = 0.75, σ1 = 0.5, σ2 = 2.0, atol = 1e-6, rtol = 1e-4)
     k = 0
     k_max = 1000
