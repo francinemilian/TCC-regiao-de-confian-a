@@ -23,10 +23,10 @@ function newton_stg(nlp::AbstractNLPModel; η1 = 0.25, η2 = 0.75, σ1 = 0.5, σ
         ared = fx - f(x + d)
         pred = - dot(d,gx) - 0.5*dot(B*d,d)
         ρ = ared/pred
-        if ρ > η1
+	if ρ > η1
             x = x + d 
         end
-        if ρ < η1
+	if ρ < η1
             Δ = σ1*Δ
         elseif ρ > η2
             Δ = σ2*Δ
@@ -39,7 +39,7 @@ function newton_stg(nlp::AbstractNLPModel; η1 = 0.25, η2 = 0.75, σ1 = 0.5, σ
             break
         end  
         tempo = time() - tempo_inicial
-        if tempo >= tempo_max
+	if tempo >= tempo_max
             saida = 2
             break
         end
