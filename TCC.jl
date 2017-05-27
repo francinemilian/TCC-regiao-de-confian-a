@@ -2,7 +2,7 @@ using CUTEst, BenchmarkProfiles, Plots
 
 include("RegiaoDeConfianca.jl")
 
-problems = CUTEst.select(max_var=2, max_con=0, only_free_var = true)
+problems = CUTEst.select(max_con=0, only_free_var = true)
 
 metodos = [lbfgs_dog, newton_stg]
 
