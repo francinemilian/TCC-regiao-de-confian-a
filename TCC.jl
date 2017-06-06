@@ -2,7 +2,7 @@ using CUTEst, BenchmarkProfiles, Plots
 
 include("RegiaoDeConfianca.jl")
 
-problems = CUTEst.select(max_var=2, max_con=0, only_free_var = true)
+problems = CUTEst.select(max_con=0, only_free_var = true)
 
 metodos = [lbfgs_dog, newton_stg]
 
@@ -38,7 +38,7 @@ AV = -ones(prob, met)
 				reset!(nlp)
 			catch
 				s = 3
-				srt = @printf("%8s  %10.1e  %10.1e  %7d  %7d  %7d  %10.8f\n", p, " ", " ", " ", s, " ", " ")
+				srt = @printf("%-7s  %s\n", p, s)
 				print(str)
 				print(file,str)
 				reset!(nlp)
